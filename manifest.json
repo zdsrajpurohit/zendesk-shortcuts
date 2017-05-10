@@ -1,0 +1,15 @@
+{
+  "name": "Zendesk Shortcuts App",
+  "version": "0.0",
+  "manifest_version": 2,
+  "description": "Shortcuts for your Zendesk instance",
+  "icons": {
+    "128": "assets/logo.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["lib/jquery.js", "lib/keymage.js", "app/main.js"]
+    }
+  ]
+}
