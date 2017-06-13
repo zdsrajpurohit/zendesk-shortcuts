@@ -1,5 +1,5 @@
 {
-  "name": "Zendesk Shortcuts App",
+  "name": "Zendesk Shortcuts",
   "version": "0.0",
   "manifest_version": 2,
   "description": "Shortcuts for your Zendesk instance",
@@ -9,7 +9,13 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["lib/jquery.js", "lib/keymage.js", "app/main.js"]
+      "js": ["lib/jquery.js", "lib/keymage.js", "app/js/main.js"]
     }
-  ]
+  ],
+  "browser_action": {
+      "default_title": "Zendesk Shortcuts",
+      "default_icon": "assets/logo.png",
+      "default_popup": "app/html/index.html"
+  },
+  "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'"
 }
