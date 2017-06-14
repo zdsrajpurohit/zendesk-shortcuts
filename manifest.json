@@ -12,7 +12,7 @@
       "js": [
         "lib/jquery.js",
         "lib/keymage.js",
-        "lib/vue.js",
+        "js/data.js",
         "js/main.js",
         "js/popup.js"
       ]
@@ -24,7 +24,8 @@
     "default_popup": "html/index.html"
   },
   "permissions": [
-    "tabs"
+    "tabs",
+    "storage"
   ],
   "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'"
 }

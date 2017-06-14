@@ -2,6 +2,12 @@ $(function() {
   $('#customizeZD').click(function() {
     getCurrentTab();
   });
+
+  $('#customizeSave').click(function() {
+    saveToCache();
+  });
+
+  getCachedShortcuts();
 });
 
 function getCurrentTab() {
@@ -23,4 +29,51 @@ function updateCurrentTab(currentTab) {
     chrome.tabs.update(currentTab.id, {url: newUrl});
     window.close();
   }
+}
+
+function getCachedShortcuts() {
+  chrome.storage.local.get(['zendesk-shortcuts-extension'], function(data) {
+    if(data['zendesk-shortcuts-extension']) {
+      if(shortcutsArray.length == data['zendesk-shortcuts-extension'].length) {
+        shortcutsArray = data['zendesk-shortcuts-extension']
+      }
+    }
+
+    renderForm();
+  });
+}
+
+function renderForm() {
+  var html = ''
+
+  shortcutsArray.forEach(function(s) {
+    html += '<label class="u-epsilon u-light u-mb-xs"><span>' + s.name + '</span></label>'
+    html += '<input class="c-txt__input u-mb-xs" id="' + s.id + '" placeholder="' + s.name + '" type="text">'
+  })
+
+  $('.shortcuts-form').html(html);
+
+  shortcutsArray.forEach(function(s) {
+    $('#' + s.id).val(s.shortcut)
+  })
+}
+
+function saveToCache() {
+  shortcutsArray.forEach(function(s) {
+    s.shortcut = $('#' + s.id).val();
+  })
+
+  chrome.storage.local.set({
+    'zendesk-shortcuts-extension': shortcutsArray
+  }, function(data) {
+    $('#customizeSave').hide();
+    $('#saveAlert')
+      .css('display', 'inline-block')
+      .hide()
+      .fadeIn()
+      .delay(1000)
+      .fadeOut(function() {
+        window.close();
+      });
+  });
 }
