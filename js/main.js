@@ -10,6 +10,8 @@ function main() {
   customKeymage();
 
   keymage('shift-alt-p', function() {
-    $('#heap-preview-theme')[0].click();
+    if($('#heap-preview-theme').length) {
+      $('#heap-preview-theme')[0].click();
+    }
   });
 }
