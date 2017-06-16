@@ -23,12 +23,15 @@ function getCurrentTab() {
 }
 
 function updateCurrentTab(currentTab) {
-  if(currentTab.url.indexOf('zendesk.com/hc') > -1) {
-    var tempIndex = currentTab.url.indexOf('zendesk.com/hc');
-    var newUrl = currentTab.url.substring(0, tempIndex + 14) + '/admin/appearance#editor';
-    chrome.tabs.update(currentTab.id, {url: newUrl});
-    window.close();
-  }
+  chrome.storage.local.get(['isHC'], function(data) {
+    if(currentTab.url.indexOf('/hc/') > -1 && data['isHC']) {
+      var tempIndex = currentTab.url.indexOf('/hc/');
+      var newUrl = currentTab.url.substring(0, tempIndex + 4) + 'admin/appearance#editor';
+      chrome.tabs.update(currentTab.id, {url: newUrl});
+      chrome.storage.local.remove(['isHC']);
+      window.close();
+    }
+  })
 }
 
 function getCachedShortcuts() {

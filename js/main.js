@@ -5,9 +5,14 @@ $('#preview-frame').load(function(){
         shortcutsArray = data['zendesk-shortcuts-extension']
       }
     }
+
     main();
   });
 });
+
+$(function() {
+  isHC();
+})
 
 function main() {
   if(window.location.href.indexOf('/hc/admin/appearance') > -1) {
@@ -28,5 +33,13 @@ function main() {
         }
       });
     });
+  }
+}
+
+function isHC() {
+  if($('#navbar-container').length) {
+    chrome.storage.local.set({
+      isHC: true
+    })
   }
 }

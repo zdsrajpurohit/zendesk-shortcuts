@@ -3,6 +3,10 @@
 // alt - Alternate
 // defmod - Command
 
+SETTINGS = {
+  
+}
+
 var shortcutsArray = [
   {
     name: 'Preview',
