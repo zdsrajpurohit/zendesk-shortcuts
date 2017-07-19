@@ -9,7 +9,7 @@ Table of contents
 Hotkeys that can be used while customizing the design of Zendesk Guide
 
 ## Project
-Build by Zendesk Professional Services. Please submit bug reports to [Service Team](services@zendesk.com).
+Built by Zendesk Professional Services. Please submit bug reports to [Service Team](services@zendesk.com).
 
 ## Documentation
 ### Steps to add the extension locally
