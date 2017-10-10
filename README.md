@@ -1,5 +1,5 @@
 # Zendesk Shortcuts App
-Shortcuts for Zendesk Guide Customization
+Shortcuts for Zendesk Guide Code Customization
 
 Table of contents
 - [Introduction](#introduction)
