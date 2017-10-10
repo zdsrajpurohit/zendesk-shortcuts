@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-# Zendesk Shortcuts App
-Shortcuts for Zendesk Guide Code Customization
-=======
 # Zendesk Hotkeys Chrome Extension
->>>>>>> 068b09a2d38ccd732957bd3e0fe26f006fc21966
 
 Table of contents
 - [Introduction](#introduction)
